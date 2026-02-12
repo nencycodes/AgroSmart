@@ -169,22 +169,13 @@ Water Pump Mobile Dashboard
 ## 📸 Prototype Demonstration
 
 ### 🔹 Full System Setup
-![Full Setup](media/prototype_full_setup.jpg)
-
-### 🔹 Soil & Sensor Integration
-![Soil Integration](media/soil_sensor.jpg)
-
-### 🔹 ESP32 & Relay Wiring
-![Wiring](media/closeup_wiring.jpg)
-
-### 🔹 Pump Control Module
-![Pump Module](media/pump_module.jpg)
+![Full Setup](media/prototype_full_setup.jpeg)
 
 ---
 
 ## 🧩 Circuit Design
 
-![Circuit Diagram](media/circuit_design.png)
+![Circuit Diagram](media/circuit_design.jpg)
 
 ---
 
