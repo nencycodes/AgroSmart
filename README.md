@@ -1,155 +1,275 @@
-# 🌾 **AGROSMART — IoT-Based Smart Irrigation System**
+# 🌾 AGROSMART — IoT-Based Smart Irrigation System
 
-### 🚀 **Project for DEVIATHON 2025**  
-**Theme:** Internet of Things (IoT)  
-**Category:** Hardware–Software Integrated Solution  
-**Team Name:** AlphaStack  
-
----
-
-## 🟩 **1. Overview**
-**AgroSmart** is an IoT-enabled smart irrigation and monitoring system designed to help farmers optimize water usage and improve crop yield.  
-The system automates irrigation based on real-time data from soil moisture, water level, and water quality sensors, controlled through an **ESP32 microcontroller** and the **Blynk IoT platform**.
+🚀 Project for DEVIATHON 2025  
+Theme: Internet of Things (IoT)  
+Category: Hardware–Software Integrated Solution  
+Team Name: AlphaStack  
 
 ---
 
-## 🟩 **2. Problem Statement**
-In regions like **Jorethang, South Sikkim**, farmers face:
+## 🟩 Overview
 
-- Unpredictable rainfall and water scarcity  
-- Excessive manual effort in irrigation  
-- Lack of affordable automation tools  
+AgroSmart is an ESP32-based IoT smart irrigation system designed to optimize water usage and improve agricultural productivity.
 
-These challenges lead to water wastage and decreased agricultural productivity.
+The system automates irrigation using real-time data from:
 
----
+- Soil Moisture Sensor  
+- Tank Water Level (Ultrasonic Sensor)  
+- TDS Sensor (Water Quality – ppm)  
+- Turbidity Sensor (Water Clarity)  
 
-## 🟩 **3. Proposed Solution**
-AgroSmart integrates multiple sensors with IoT technology to automate and monitor irrigation intelligently.
-
-- Measures soil moisture, water level, and water quality  
-- Controls the water pump automatically through relay switching  
-- Provides remote monitoring and control via the **Blynk IoT app**  
-- Sends real-time alerts for low tank levels or poor water quality  
+The system integrates hardware automation with cloud-based monitoring using the **Blynk IoT platform**.
 
 ---
 
-## 🟩 **4. System Architecture**
+## 🟩 Problem Statement
+
+Farmers in regions like Jorethang, South Sikkim face:
+
+- Unpredictable rainfall  
+- Water scarcity  
+- Manual irrigation dependency  
+- Lack of affordable automation  
+
+This leads to:
+- Water wastage  
+- Increased labor  
+- Reduced crop yield  
+
+---
+
+## 🟩 Proposed Solution
+
+AgroSmart provides:
+
+- Automatic irrigation based on soil moisture threshold  
+- Tank level monitoring to prevent dry pumping  
+- Water quality monitoring using TDS and turbidity sensors  
+- Real-time data visualization via Blynk dashboard  
+- Remote manual pump control  
+- Instant alert notifications  
+
+---
+
+## 🧩 System Architecture
+# 🌾 AGROSMART — IoT-Based Smart Irrigation System
+
+🚀 Project for DEVIATHON 2025  
+Theme: Internet of Things (IoT)  
+Category: Hardware–Software Integrated Solution  
+Team Name: AlphaStack  
+
+---
+
+## 🟩 Overview
+
+AgroSmart is an ESP32-based IoT smart irrigation system designed to optimize water usage and improve agricultural productivity.
+
+The system automates irrigation using real-time data from:
+
+- Soil Moisture Sensor  
+- Tank Water Level (Ultrasonic Sensor)  
+- TDS Sensor (Water Quality – ppm)  
+- Turbidity Sensor (Water Clarity)  
+
+The system integrates hardware automation with cloud-based monitoring using the **Blynk IoT platform**.
+
+---
+
+## 🟩 Problem Statement
+
+Farmers in regions like Jorethang, South Sikkim face:
+
+- Unpredictable rainfall  
+- Water scarcity  
+- Manual irrigation dependency  
+- Lack of affordable automation  
+
+This leads to:
+- Water wastage  
+- Increased labor  
+- Reduced crop yield  
+
+---
+
+## 🟩 Proposed Solution
+
+AgroSmart provides:
+
+- Automatic irrigation based on soil moisture threshold  
+- Tank level monitoring to prevent dry pumping  
+- Water quality monitoring using TDS and turbidity sensors  
+- Real-time data visualization via Blynk dashboard  
+- Remote manual pump control  
+- Instant alert notifications  
+
+---
+
+## 🧩 System Architecture
+
 +---------------------------------------------------+
-|             SENSOR LAYER (Inputs)                 |
-| Soil Moisture | TDS | Turbidity | Ultrasonic      |
+| SENSOR LAYER |
+| Soil Moisture | TDS | Turbidity | Ultrasonic |
 +--------------------------+------------------------+
-                           |
-                           v
-                  +-------------------+
-                  |    ESP32 Board    |
-                  +-----+--------+----+
-                        |        |
-            Controls Pump       Sends Data
-                        |        |
-               +--------v--------v--------+
-               |       Blynk Cloud        |
-               +-----------+--------------+
-                           |
-                           v
-                  [ Mobile Dashboard ]
+|
+v
++-------------+
+| ESP32 |
+| Control & |
+| WiFi Module |
++------+------+
+|
+----------------------------------
+| |
+Relay Control Blynk Cloud
+| |
+Water Pump Mobile Dashboard
 
 
 ---
 
-## 🟩 **5. Hardware Components**
+## ⚙️ Working Principle
 
-| **Component** | **Function** |
-|----------------|--------------|
-| ESP32 | Central control and Wi-Fi communication |
-| Soil Moisture Sensor | Detects soil water content |
-| TDS Sensor | Measures water purity (ppm) |
-| Turbidity Sensor | Detects clarity of water |
-| Ultrasonic Sensor | Measures tank water level |
-| Relay Module | Controls pump operation |
-| Submersible Pump | Waters the field automatically |
+1. Soil moisture is continuously monitored.
+2. If soil moisture falls below threshold AND tank level is sufficient → Pump turns ON.
+3. Pump turns OFF when moisture reaches required level or tank level becomes low.
+4. Sensor data is transmitted to Blynk dashboard.
+5. Farmer can manually control pump via mobile app.
 
 ---
 
-## 🟩 **6. Working Principle**
-1. The soil moisture sensor monitors soil wetness continuously.  
-2. When the soil becomes dry and the tank has sufficient water, the **relay activates the pump** automatically.  
-3. The pump stops once the soil reaches the required moisture or the tank is low.  
-4. Data from all sensors is sent to the **Blynk IoT dashboard**.  
-5. Farmers can also manually control the pump through the mobile app.
+## 📊 Blynk Dashboard Configuration
 
----
-
-## 🟩 **7. Blynk Dashboard Configuration**
-
-| **Widget** | **Function** |
-|-------------|--------------|
-| Gauge 1 | Displays soil moisture percentage |
-| Gauge 2 | Displays tank water level |
-| Gauge 3 | Displays TDS value |
-| Gauge 4 | Displays turbidity percentage |
+| Widget | Function |
+|---------|----------|
+| Gauge 1 | Soil moisture percentage |
+| Gauge 2 | Tank water level (cm) |
+| Gauge 3 | TDS value (ppm) |
+| Gauge 4 | Turbidity (%) |
 | Button | Manual pump control |
-| Notification | Alerts for low tank or poor water quality |
+| Notification | Low tank / Poor water alerts |
 
 ---
 
-## 🟩 **8. Technologies Used**
+## 🔧 Hardware Components
 
-| **Category** | **Tools / Platforms** |
-|----------------|------------------------|
-| Microcontroller | ESP32 |
-| Programming | Arduino IDE |
-| IoT Platform | Blynk |
-| Connectivity | Wi-Fi |
-| Power Source | USB / 5V DC |
-
----
-
-## 🟩 **9. Key Features**
-- Automatic irrigation based on soil moisture readings  
-- Real-time monitoring via Blynk IoT app  
-- Water quality and tank level analysis  
-- Instant notifications and alerts  
-- Manual pump control through the app  
-- Low-cost, modular, and scalable design  
+| Component | Function |
+|------------|----------|
+| ESP32 | Central control & WiFi communication |
+| Soil Moisture Sensor | Detect soil water content |
+| TDS Sensor | Measure dissolved solids (ppm) |
+| Turbidity Sensor | Detect water clarity |
+| Ultrasonic Sensor | Measure tank level |
+| Relay Module | Pump switching & isolation |
+| Submersible Pump | Automated irrigation |
+| 5V Power Supply | System power source |
 
 ---
 
-## 🟩 **10. Impact**
+## 📸 Prototype Demonstration
 
-| **Area** | **Outcome** |
-|-----------|-------------|
-| Water Conservation | Reduces wastage through data-driven control |
-| Productivity | Ensures consistent crop growth |
+### 🔹 Full System Setup
+![Full Setup](media/prototype_full_setup.jpg)
+
+### 🔹 Soil & Sensor Integration
+![Soil Integration](media/soil_sensor.jpg)
+
+### 🔹 ESP32 & Relay Wiring
+![Wiring](media/closeup_wiring.jpg)
+
+### 🔹 Pump Control Module
+![Pump Module](media/pump_module.jpg)
+
+---
+
+## 🧩 Circuit Design
+
+![Circuit Diagram](media/circuit_design.png)
+
+---
+
+## ⚙️ Implementation Notes
+
+- Developed using ESP32 Dev Board with Wi-Fi communication.
+- Soil moisture calibrated using dry and wet soil conditions.
+- Relay module used for electrical isolation between ESP32 and pump.
+- Ultrasonic sensor deployed for tank depth measurement.
+- Sensor data transmitted to Blynk IoT cloud.
+- Tested using real soil bed and live water circulation setup.
+
+---
+
+## 🧠 Control Logic
+IF soil_moisture < threshold
+AND tank_level > minimum_level
+THEN pump = ON
+ELSE pump = OFF
+
+
+Threshold Parameters:
+- Soil Moisture Threshold: 40%
+- Minimum Tank Level: 12 cm
+- TDS Threshold: 700 ppm
+- Turbidity Threshold: 65%
+
+---
+
+## 🚧 Challenges Faced
+
+- Noise in analog sensor readings
+- Soil density affecting calibration accuracy
+- WiFi reconnection stability
+- Safe isolation of pump power circuit
+
+---
+
+## 📈 Future Improvements
+
+- Moving average filtering for stable sensor readings
+- MQTT-based communication for scalability
+- PCB-based compact hardware design
+- Solar-powered deployment
+- Weather API integration for predictive irrigation
+- Crop-specific moisture calibration
+
+---
+
+## 🌍 Impact
+
+| Area | Outcome |
+|------|----------|
+| Water Conservation | Reduces wastage through threshold control |
+| Productivity | Ensures consistent irrigation |
 | Labor Efficiency | Minimizes manual supervision |
-| Cost-effectiveness | Uses affordable and open-source components |
-| Sustainability | Promotes smart and eco-friendly agriculture |
+| Cost-effectiveness | Uses affordable open-source components |
+| Sustainability | Promotes eco-friendly smart farming |
 
 ---
 
-## 🟩 **11. Future Enhancements**
-- Integration of weather APIs to avoid unnecessary irrigation  
-- Solar-powered operation for energy efficiency  
-- AI-driven irrigation prediction models  
-- Crop-based threshold calibration  
-- Dedicated Android app for regional language farmers  
+## 👩‍💻 Team AlphaStack
+
+**Nency Chandiramani**  
+Team Leader & IoT Developer  
+- System design  
+- ESP32 programming  
+- Blynk integration  
+- Control logic implementation  
+
+Team Members: Hardware assembly, testing & documentation support.
 
 ---
 
-## 🟩 **12. Team AlphaStack**
+## 🏁 Conclusion
 
-| **Member** | **Role** | **Responsibilities** |
-|-------------|----------|----------------------|
-| **Nency Chandiramani** | Team Leader, IoT Developer | System design, ESP32 programming, and Blynk integration |
-| **Team Members** | Hardware, Testing, Presentation | Circuit assembly, testing, and documentation |
+AgroSmart presents a scalable, affordable, and practical smart agriculture solution.  
+
+By combining IoT, automation, and real-time monitoring, it empowers farmers with data-driven irrigation control.
 
 ---
 
-## 🟩 **13. Conclusion**
-**AgroSmart** presents a sustainable, scalable, and affordable solution for smart agriculture.  
-It automates irrigation, ensures water quality, and empowers farmers through data-driven decision-making.
+### ✨ Tagline
 
-**Tagline:**  
 **“Every Drop Counts, Every Crop Matters — AgroSmart: Smarter Water, Better Harvest.”**
 
-┌─────────────────────────────────────────────┐
+
+
